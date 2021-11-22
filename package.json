@@ -52,10 +52,10 @@
     "prettier": "^2.4.1",
     "typescript": "~4.4.3"
   },
-  "husky":{
-    "hooks":{
+  "husky": {
+    "hooks": {
       "pre-commit": "prettier-format",
       "pre-push": "npm run lint"
-    } 
+    }
   }
 }
