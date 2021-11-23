@@ -6,27 +6,27 @@ import {PersonasListComponent} from './components/personas-list/personas-list.co
 import {SeguimientoFormComponent} from './components/seguimiento-form/seguimiento-form.component';
 
 const routes: Routes = [
-    {
-        path: 'persona',
-        component: PersonasListComponent,
-    },
-    {
-        path: 'persona/:id',
-        component: PersonaUpdateComponent,
-    },
-    {
-        path: 'seguimiento/:id',
-        component: SeguimientoFormComponent,
-    },
-    {
-        path: '',
-        redirectTo: '/persona',
-        pathMatch: 'full',
-    },
+     {
+          path: 'persona',
+          component: PersonasListComponent
+     },
+     {
+          path: 'persona/:id',
+          component: PersonaUpdateComponent
+     },
+     {
+          path: 'seguimiento/:id',
+          component: SeguimientoFormComponent
+     },
+     {
+          path: '',
+          redirectTo: '/persona',
+          pathMatch: 'full'
+     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+     imports: [RouterModule.forRoot(routes)],
+     exports: [RouterModule]
 })
 export class AppRoutingModule {}

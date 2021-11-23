@@ -3,19 +3,19 @@ import {HttpClient} from '@angular/common/http';
 import {Student} from '../interfaces/Student';
 
 @Injectable({
-    providedIn: 'root',
+     providedIn: 'root'
 })
 export class StudentService {
-    URI = 'http://localhost:4000/students';
-    constructor(private http: HttpClient) {}
+     URI = 'http://localhost:4000/students';
+     constructor(private http: HttpClient) {}
 
-    getStudents() {
-        return this.http.get<Student[]>(this.URI);
-    }
-    createStudent(student: Student) {
-        return this.http.post<Student>(this.URI, student);
-    }
-    getStudent(id: string) {
-        return this.http.get<Student>(this.URI + '/' + id);
-    }
+     getStudents() {
+          return this.http.get<Student[]>(this.URI);
+     }
+     createStudent(student: Student) {
+          return this.http.post<Student>(this.URI, student);
+     }
+     getStudent(id: string) {
+          return this.http.get<Student>(this.URI + '/' + id);
+     }
 }

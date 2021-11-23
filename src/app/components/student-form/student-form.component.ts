@@ -7,94 +7,94 @@ import {StudentService} from 'src/app/services/student.service';
 import {SubjectService} from 'src/app/services/subject.service';
 
 @Component({
-    selector: 'app-student-form',
-    templateUrl: './student-form.component.html',
-    styleUrls: ['./student-form.component.css'],
+     selector: 'app-student-form',
+     templateUrl: './student-form.component.html',
+     styleUrls: ['./student-form.component.css']
 })
 export class StudentFormComponent implements OnInit {
-    id: string;
-    subject: Subject;
-    students: Array<Student>;
+     id: string;
+     subject: Subject;
+     students: Array<Student>;
 
-    constructor(
-        private activeRoute: ActivatedRoute,
-        private subjectService: SubjectService,
-        private studentService: StudentService,
-        private router: Router,
-    ) {
-        this.id = '';
-        this.subject = <Subject>{};
-        this.students = [];
-    }
+     constructor(
+          private activeRoute: ActivatedRoute,
+          private subjectService: SubjectService,
+          private studentService: StudentService,
+          private router: Router
+     ) {
+          this.id = '';
+          this.subject = <Subject>{};
+          this.students = [];
+     }
 
-    ngOnInit(): void {
-        this.activeRoute.params.subscribe(
-            (res) => {
-                this.id = res['id'];
-                this.subjectService.getSubject(this.id).subscribe(
-                    (res) => (this.subject = res),
-                    (err) => console.log(err),
-                );
-            },
-            (err) => console.log(err),
-        );
-        this.studentService.getStudents().subscribe(
-            (res) => (this.students = res),
-            (err) => console.log(err),
-        );
-    }
+     ngOnInit(): void {
+          this.activeRoute.params.subscribe(
+               (res) => {
+                    this.id = res['id'];
+                    this.subjectService.getSubject(this.id).subscribe(
+                         (res) => (this.subject = res),
+                         (err) => console.log(err)
+                    );
+               },
+               (err) => console.log(err)
+          );
+          this.studentService.getStudents().subscribe(
+               (res) => (this.students = res),
+               (err) => console.log(err)
+          );
+     }
 
-    addStudent(
-        name: HTMLInputElement,
-        address: HTMLInputElement,
-        namephone1: HTMLInputElement,
-        phone1: HTMLInputElement,
-        namephone2: HTMLInputElement,
-        phone2: HTMLInputElement,
-    ): boolean {
-        let phone_1: Phone;
-        let phone_2: Phone;
-        const phones: Array<Phone> = [];
-        if (phone1) {
-            phone_1 = {
-                name: namephone1.value,
-                phone: phone1.value,
-            };
-            phones.push(phone_1);
-        }
-        if (phone2) {
-            phone_2 = {
-                name: namephone2.value,
-                phone: phone2.value,
-            };
-            phones.push(phone_2);
-        }
-        let studentId: any = '';
-        const student = {
-            _id: '',
-            name: name.value,
-            address: address.value,
-            phones: phones,
-        };
-        this.studentService.createStudent(student).subscribe(
-            (res) => {
-                console.log(res);
-                studentId = res._id;
-                const updatedSubject = {
-                    _id: this.subject._id,
-                    name: this.subject.name,
-                    students: this.subject.students?.concat(studentId),
-                };
-                this.subjectService.updateSubject(updatedSubject).subscribe(
-                    (res) => {
-                        console.log(res);
-                        this.router.navigate(['/subjects/']);
-                    },
-                    (err) => console.log(err),
-                );
-            },
-            (err) => console.log(err),
-        );
-        return false;
-    }
+     addStudent(
+          name: HTMLInputElement,
+          address: HTMLInputElement,
+          namephone1: HTMLInputElement,
+          phone1: HTMLInputElement,
+          namephone2: HTMLInputElement,
+          phone2: HTMLInputElement
+     ): boolean {
+          let phone_1: Phone;
+          let phone_2: Phone;
+          const phones: Array<Phone> = [];
+          if (phone1) {
+               phone_1 = {
+                    name: namephone1.value,
+                    phone: phone1.value
+               };
+               phones.push(phone_1);
+          }
+          if (phone2) {
+               phone_2 = {
+                    name: namephone2.value,
+                    phone: phone2.value
+               };
+               phones.push(phone_2);
+          }
+          let studentId: any = '';
+          const student = {
+               _id: '',
+               name: name.value,
+               address: address.value,
+               phones: phones
+          };
+          this.studentService.createStudent(student).subscribe(
+               (res) => {
+                    console.log(res);
+                    studentId = res._id;
+                    const updatedSubject = {
+                         _id: this.subject._id,
+                         name: this.subject.name,
+                         students: this.subject.students?.concat(studentId)
+                    };
+                    this.subjectService.updateSubject(updatedSubject).subscribe(
+                         (res) => {
+                              console.log(res);
+                              this.router.navigate(['/subjects/']);
+                         },
+                         (err) => console.log(err)
+                    );
+               },
+               (err) => console.log(err)
+          );
+          return false;
+     }
 }

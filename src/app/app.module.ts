@@ -14,19 +14,19 @@ import {PersonaUpdateComponent} from './components/persona-update/persona-update
 import {SeguimientoFormComponent} from './components/seguimiento-form/seguimiento-form.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavigationComponent,
-        SubjectListComponent,
-        SubjectPreviewComponent,
-        StudentPreviewComponent,
-        StudentFormComponent,
-        PersonasListComponent,
-        PersonaUpdateComponent,
-        SeguimientoFormComponent,
-    ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-    providers: [],
-    bootstrap: [AppComponent],
+     declarations: [
+          AppComponent,
+          NavigationComponent,
+          SubjectListComponent,
+          SubjectPreviewComponent,
+          StudentPreviewComponent,
+          StudentFormComponent,
+          PersonasListComponent,
+          PersonaUpdateComponent,
+          SeguimientoFormComponent
+     ],
+     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+     providers: [],
+     bootstrap: [AppComponent]
 })
 export class AppModule {}
