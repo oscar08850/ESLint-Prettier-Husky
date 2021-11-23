@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {SubjectPreviewComponent} from './subject-preview.component';
+import {SubjectPreviewComponent} from "./subject-preview.component";
 
-describe('SubjectPreviewComponent', () => {
+describe("SubjectPreviewComponent", () => {
      let component: SubjectPreviewComponent;
      let fixture: ComponentFixture<SubjectPreviewComponent>;
 
@@ -18,7 +18,7 @@ describe('SubjectPreviewComponent', () => {
           fixture.detectChanges();
      });
 
-     it('should create', () => {
+     it("should create", () => {
           expect(component).toBeTruthy();
      });
 });

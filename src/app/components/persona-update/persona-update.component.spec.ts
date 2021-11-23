@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {PersonaUpdateComponent} from './persona-update.component';
+import {PersonaUpdateComponent} from "./persona-update.component";
 
-describe('PersonaUpdateComponent', () => {
+describe("PersonaUpdateComponent", () => {
      let component: PersonaUpdateComponent;
      let fixture: ComponentFixture<PersonaUpdateComponent>;
 
@@ -18,7 +18,7 @@ describe('PersonaUpdateComponent', () => {
           fixture.detectChanges();
      });
 
-     it('should create', () => {
+     it("should create", () => {
           expect(component).toBeTruthy();
      });
 });

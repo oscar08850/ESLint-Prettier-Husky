@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Seguimiento} from 'src/app/interfaces/Seguimiento';
-import {SeguimientoService} from 'src/app/services/seguimiento.service';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Seguimiento} from "src/app/interfaces/Seguimiento";
+import {SeguimientoService} from "src/app/services/seguimiento.service";
 
 @Component({
-     selector: 'app-seguimiento-form',
-     templateUrl: './seguimiento-form.component.html',
-     styleUrls: ['./seguimiento-form.component.css']
+     selector: "app-seguimiento-form",
+     templateUrl: "./seguimiento-form.component.html",
+     styleUrls: ["./seguimiento-form.component.css"]
 })
 export class SeguimientoFormComponent implements OnInit {
      id: string;
@@ -16,13 +16,13 @@ export class SeguimientoFormComponent implements OnInit {
           private seguimientoService: SeguimientoService,
           private router: Router
      ) {
-          this.id = '';
+          this.id = "";
      }
 
      ngOnInit(): void {
           this.activateRoute.params.subscribe((params) => {
-               console.log(params['id']);
-               this.id = params['id'];
+               console.log(params["id"]);
+               this.id = params["id"];
           });
      }
 
@@ -34,7 +34,7 @@ export class SeguimientoFormComponent implements OnInit {
           malestar: HTMLInputElement
      ) {
           const seguimiento: Seguimiento = {
-               _id: '',
+               _id: "",
                persona: this.id,
                fecha: fecha.value,
                fiebre: fiebre.value,
@@ -45,7 +45,7 @@ export class SeguimientoFormComponent implements OnInit {
           this.seguimientoService.createSeguimiento(seguimiento).subscribe(
                (res) => {
                     console.log(res);
-                    this.router.navigate(['/persona/' + this.id]);
+                    this.router.navigate(["/persona/" + this.id]);
                },
                (err) => console.log(err)
           );

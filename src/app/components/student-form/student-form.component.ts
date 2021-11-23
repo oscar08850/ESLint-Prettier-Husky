@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Phone} from 'src/app/interfaces/Phone';
-import {Student} from 'src/app/interfaces/Student';
-import {Subject} from 'src/app/interfaces/Subject';
-import {StudentService} from 'src/app/services/student.service';
-import {SubjectService} from 'src/app/services/subject.service';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Phone} from "src/app/interfaces/Phone";
+import {Student} from "src/app/interfaces/Student";
+import {Subject} from "src/app/interfaces/Subject";
+import {StudentService} from "src/app/services/student.service";
+import {SubjectService} from "src/app/services/subject.service";
 
 @Component({
-     selector: 'app-student-form',
-     templateUrl: './student-form.component.html',
-     styleUrls: ['./student-form.component.css']
+     selector: "app-student-form",
+     templateUrl: "./student-form.component.html",
+     styleUrls: ["./student-form.component.css"]
 })
 export class StudentFormComponent implements OnInit {
      id: string;
@@ -22,7 +22,7 @@ export class StudentFormComponent implements OnInit {
           private studentService: StudentService,
           private router: Router
      ) {
-          this.id = '';
+          this.id = "";
           this.subject = <Subject>{};
           this.students = [];
      }
@@ -30,7 +30,7 @@ export class StudentFormComponent implements OnInit {
      ngOnInit(): void {
           this.activeRoute.params.subscribe(
                (res) => {
-                    this.id = res['id'];
+                    this.id = res["id"];
                     this.subjectService.getSubject(this.id).subscribe(
                          (res) => (this.subject = res),
                          (err) => console.log(err)
@@ -69,9 +69,9 @@ export class StudentFormComponent implements OnInit {
                };
                phones.push(phone_2);
           }
-          let studentId: any = '';
+          let studentId: any = "";
           const student = {
-               _id: '',
+               _id: "",
                name: name.value,
                address: address.value,
                phones: phones
@@ -88,7 +88,7 @@ export class StudentFormComponent implements OnInit {
                     this.subjectService.updateSubject(updatedSubject).subscribe(
                          (res) => {
                               console.log(res);
-                              this.router.navigate(['/subjects/']);
+                              this.router.navigate(["/subjects/"]);
                          },
                          (err) => console.log(err)
                     );

@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Persona} from 'src/app/interfaces/Persona';
-import {PersonaService} from 'src/app/services/persona.service';
+import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {Persona} from "src/app/interfaces/Persona";
+import {PersonaService} from "src/app/services/persona.service";
 
 @Component({
-     selector: 'app-personas-list',
-     templateUrl: './personas-list.component.html',
-     styleUrls: ['./personas-list.component.css']
+     selector: "app-personas-list",
+     templateUrl: "./personas-list.component.html",
+     styleUrls: ["./personas-list.component.css"]
 })
 export class PersonasListComponent implements OnInit {
      personas: Array<Persona>;
@@ -29,6 +29,6 @@ export class PersonasListComponent implements OnInit {
      }
 
      upload(id: string) {
-          this.router.navigate(['/persona/' + id]);
+          this.router.navigate(["/persona/" + id]);
      }
 }

@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {StudentFormComponent} from './student-form.component';
+import {StudentFormComponent} from "./student-form.component";
 
-describe('StudentFormComponent', () => {
+describe("StudentFormComponent", () => {
      let component: StudentFormComponent;
      let fixture: ComponentFixture<StudentFormComponent>;
 
@@ -18,7 +18,7 @@ describe('StudentFormComponent', () => {
           fixture.detectChanges();
      });
 
-     it('should create', () => {
+     it("should create", () => {
           expect(component).toBeTruthy();
      });
 });

@@ -10,6 +10,6 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules":{ 
-      "no-console": 1 //Buscame console logs
+      "no-console": 2 //Buscame console logs
   }
 }

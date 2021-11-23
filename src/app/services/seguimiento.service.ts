@@ -1,12 +1,12 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Seguimiento} from '../interfaces/Seguimiento';
+import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {Seguimiento} from "../interfaces/Seguimiento";
 
 @Injectable({
-     providedIn: 'root'
+     providedIn: "root"
 })
 export class SeguimientoService {
-     URI = 'http://localhost:4000/seguimiento';
+     URI = "http://localhost:4000/seguimiento";
      constructor(private http: HttpClient) {}
 
      getSeguimientos() {
@@ -16,6 +16,6 @@ export class SeguimientoService {
           return this.http.post<Seguimiento>(this.URI, seguimiento);
      }
      getSeguimiento(id: string) {
-          return this.http.get<Seguimiento>(this.URI + '/' + id);
+          return this.http.get<Seguimiento>(this.URI + "/" + id);
      }
 }

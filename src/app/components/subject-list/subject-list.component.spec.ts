@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {SubjectListComponent} from './subject-list.component';
+import {SubjectListComponent} from "./subject-list.component";
 
-describe('SubjectListComponent', () => {
+describe("SubjectListComponent", () => {
      let component: SubjectListComponent;
      let fixture: ComponentFixture<SubjectListComponent>;
 
@@ -18,7 +18,7 @@ describe('SubjectListComponent', () => {
           fixture.detectChanges();
      });
 
-     it('should create', () => {
+     it("should create", () => {
           expect(component).toBeTruthy();
      });
 });

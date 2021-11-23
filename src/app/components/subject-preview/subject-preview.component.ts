@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Subject} from '../../interfaces/Subject';
-import {Student} from '../../interfaces/Student';
-import {Phone} from '../../interfaces/Phone';
-import {SubjectService} from 'src/app/services/subject.service';
-import {StudentService} from 'src/app/services/student.service';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Subject} from "../../interfaces/Subject";
+import {Student} from "../../interfaces/Student";
+import {Phone} from "../../interfaces/Phone";
+import {SubjectService} from "src/app/services/subject.service";
+import {StudentService} from "src/app/services/student.service";
 
 @Component({
-     selector: 'app-subject-preview',
-     templateUrl: './subject-preview.component.html',
-     styleUrls: ['./subject-preview.component.css']
+     selector: "app-subject-preview",
+     templateUrl: "./subject-preview.component.html",
+     styleUrls: ["./subject-preview.component.css"]
 })
 export class SubjectPreviewComponent implements OnInit {
      id: string;
@@ -22,7 +22,7 @@ export class SubjectPreviewComponent implements OnInit {
           private studentService: StudentService,
           private router: Router
      ) {
-          this.id = '';
+          this.id = "";
           this.subject = <Subject>{};
           this.students = [];
      }
@@ -30,7 +30,7 @@ export class SubjectPreviewComponent implements OnInit {
      ngOnInit(): void {
           this.activeRoute.params.subscribe(
                (res) => {
-                    this.id = res['id'];
+                    this.id = res["id"];
                     this.subjectService.getSubject(this.id).subscribe(
                          (res) => (this.subject = res),
                          (err) => console.log(err)
@@ -45,9 +45,9 @@ export class SubjectPreviewComponent implements OnInit {
      }
 
      studentSelected(id: string) {
-          this.router.navigate(['students/' + id]);
+          this.router.navigate(["students/" + id]);
      }
      addAlumno(id: string | undefined) {
-          this.router.navigate(['students/addAlumno/', id]);
+          this.router.navigate(["students/addAlumno/", id]);
      }
 }

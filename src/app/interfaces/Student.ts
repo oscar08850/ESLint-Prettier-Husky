@@ -1,4 +1,4 @@
-import {Phone} from './Phone';
+import {Phone} from "./Phone";
 
 export interface Student {
      _id?: string;

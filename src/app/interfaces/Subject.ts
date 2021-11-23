@@ -1,7 +1,7 @@
-import {Student} from './Student';
+import {Student} from "./Student";
 
 export interface Subject {
      _id?: string;
      name: string;
-     students: Student['_id'];
+     students: Student["_id"];
 }
